@@ -1,227 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
-  <style>
-    /* Reset some default browser styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume - Dennis Tenerife</title>
+<style>
+  /* Reset some default styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f8;
+    color: #444;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    background: #ffffff;
+    margin: 40px auto;
+    padding: 40px 60px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  header {
+    text-align: center;
+    border-bottom: 3px solid #3a86ff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #3a86ff;
+  }
+  header p {
+    margin: 8px 0 0;
+    font-size: 1.1rem;
+    color: #6b7280;
+  }
+  
+  /* Contact info */
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #888;
+  }
+  .contact-info a {
+    color: #3a86ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .contact-info a:hover {
+    color: #264d99;
+  }
+  
+  /* Section styles */
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    border-left: 5px solid #3a86ff;
+    padding-left: 12px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      line-height: 1.6;
-    }
+  /* Professional summary */
+  #summary p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: auto;
+  }
 
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1.5rem 0;
-      text-align: center;
-    }
+  /* Experience and education */
+  .item {
+    margin-bottom: 25px;
+  }
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .job-title, .degree {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #1e3a8a;
+  }
+  .company, .school {
+    font-style: italic;
+    color: #555;
+    margin-top: 3px;
+  }
+  .date-range {
+    color: #999;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .description {
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 1rem;
+    color: #444;
+  }
+  .description ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .description ul li {
+    margin-bottom: 8px;
+  }
+  
+  /* Skills */
+  #skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    padding-left: 0;
+    list-style: none;
+    font-size: 1rem;
+    max-width: 700px;
+    margin: auto;
+  }
+  #skills ul li {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    padding: 7px 15px;
+    border-radius: 20px;
+  }
 
+  /* Certifications */
+  #certifications ul {
+    max-width: 700px;
+    margin: auto;
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #444;
+    font-size: 1rem;
+  }
+  #certifications ul li {
+    margin-bottom: 8px;
+  }
+
+  /* Projects */
+  #projects .item {
+    margin-bottom: 25px;
+  }
+  #projects .project-title {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 1.2rem;
+  }
+  #projects .project-link a {
+    text-decoration: none;
+    color: #3a86ff;
+    font-weight: 600;
+  }
+  #projects .project-link a:hover {
+    text-decoration: underline;
+  }
+  #projects .description {
+    margin-left: 15px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container {
+      padding: 30px 20px;
+      margin: 20px 10px;
+    }
     header h1 {
-      margin-bottom: 0.3rem;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
-
-    header p {
-      font-style: italic;
-      opacity: 0.8;
+    section h2 {
+      font-size: 1.5rem;
     }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #f39c12;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2.section-title {
-      color: #333;
-      border-bottom: 2px solid #f39c12;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .about p {
-      max-width: 700px;
-      font-size: 1.1rem;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
-
-    .project-card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .contact form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
+    .item-header {
       flex-direction: column;
-      gap: 1rem;
+      align-items: flex-start;
+      gap: 3px;
     }
-
-    .contact label {
-      font-weight: 600;
+    .date-range {
+      font-size: 0.9rem;
     }
-
-    .contact input, 
-    .contact textarea {
-      padding: 0.6rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: vertical;
+    #skills ul {
+      justify-content: center;
+      gap: 10px 15px;
     }
-
-    .contact button {
-      background-color: #f39c12;
-      color: #fff;
-      border: none;
-      padding: 0.75rem;
-      font-size: 1.1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact button:hover {
-      background-color: #e67e22;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      background-color: #333;
-      color: #fff;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav a {
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Dennis Tenerife</h1>
-    <p>Web Developer & Designer</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="container">
+    <header>
+      <h1>ENGR. DENNIS C. TENERIFE</h1>
+      <p>Programmer | Educator | Tech Enthusiast</p>
+      <div class="contact-info">
+        <div>Email: <a href="mailto:tenerifedennis64@gmail.com">tenerifedennis64@gmail.com</a></div>
+        <div>Phone: (+63) 9334455696</div>
+        <div>LinkedIn: <a href="https://linkedin.com/in/dennistenerife" target="_blank" rel="noopener">linkedin.com/in/dennistenerife</a></div>
+        <div>GitHub: <a href="https://github.com/dennisheng1222" target="_blank" rel="noopener">github.com/dennisheng1222</a></div>
+      </div>
+    </header>
 
-  <main>
-    <section id="about" class="about">
-      <h2 class="section-title">About Me</h2>
-      <p>Hello! I'm Dennis, a passionate web developer with experience in building beautiful and functional websites. I love coding and continuously learning new technologies to improve my craft.</p>
+    <section id="summary">
+      <h2>Professional Summary</h2>
+      <p>A Faculty Member of the Mindanao State University Buug for 16 years. A Dean of the College of Information Technology and a researcher</p>
     </section>
 
-    <section id="projects" class="projects-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects">
-        <article class="project-card">
-          
-          <h3>Project One</h3>
-          <p>A responsive website built with HTML, CSS, and JavaScript showcasing creative design and smooth animations.</p>
-        </article>
-        <article class="project-card">
-         
-          <h3>Project Two</h3>
-          <p>An e-commerce platform built with React and Node.js, featuring a seamless shopping experience and secure checkout.</p>
-        </article>
-        <article class="project-card">
-         
-          <h3>Project Three</h3>
-          <p>A blog CMS developed with Django, allowing users to create, manage, and share articles easily with rich text editing.</p>
-        </article>
+    <section id="experience">
+      <h2>Work Experience</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="job-title">Faculty Member</div>
+          <div class="date-range">June 2004 – May 2008</div>
+        </div>
+        <div class="company">Western Mindanao State University, Siay, Zamboanga Sibugay</div>
+        <div class="description">
+          <ul>
+            <li>Computer Science Department Head</li>
+            <li>A Network Administrator</li>
+            <li>A Programmer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="job-title">Trainor</div>
+          <div class="date-range">Jun 2008 – May 2009</div>
+        </div>
+        <div class="company">Zamboanga Sibugay Polytechnic Institute, Kabasalan, Zamboanga Sibugay</div>
+        <div class="description">
+          <ul>
+            <li>A TESDA Trainor for CSS and PCO</li>
+            <li>A TESDA Accredited Assessor for CSS.</li>
+            <li>A Faculty Member for a year</li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="job-title">University Faculty Member</div>
+          <div class="date-range">June 2009 – Present</div>
+        </div>
+        <div class="company">Mindanao State University, Buug, Zamboanga Sibugay</div>
+        <div class="description">
+          <ul>
+            <li>Dean of the College of Information Technology.</li>
+            <li>Network Administrator.</li>
+            <li>System Administrator.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2 class="section-title">Contact Me</h2>
-      <form action="mailto:your.email@example.com" method="POST" enctype="text/plain">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required />
-        
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email address" required />
-        
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-        
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+    <section id="education">
+      <h2>Education</h2>
 
-  <footer>
-    <p>© 2025 ICT Team. All rights reserved.</p>
-  </footer>
+      <div class="item">
+        <div class="item-header">
+          <div class="degree">Bachelor of Science in Computer Engineering</div>
+          <div class="date-range">1998 – 2002</div>
+        </div>
+        <div class="school">University de Zamboanga, Zamboanga City</div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>JavaScript (ES6+), TypeScript, PHP, HTML, CSS</li>
+        <li>Python, Flask, Django</li>
+        <li>SQL & NoSQL databases (MySQL, MongoDB)</li>
+      </ul>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Mikrotik Certified Network Associate</li>
+        <li>Mikrotik Certified User Management Engineer</li>
+        <li>Certified Google Educator</li>
+      </ul>
+    </section>
+
+    
+  </div>
 </body>
 </html>
